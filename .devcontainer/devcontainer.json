@@ -1,0 +1,17 @@
+{
+    "name": "aws-config-rules",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:bullseye",
+    "features": {},
+    "containerEnv": {
+        "SHELL": "/bin/zsh"
+    },
+    "settings": {},
+    "extensions": [
+        "github.copilot"
+    ],
+    "remoteUser": "vscode",
+    "postCreateCommand": ".devcontainer/post-create-command.sh",
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/home/vscode/.guard/bin/"
+    }
+}

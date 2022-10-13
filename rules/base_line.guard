@@ -1,0 +1,3 @@
+rule base_line {
+  resourceType == "KMS"
+}

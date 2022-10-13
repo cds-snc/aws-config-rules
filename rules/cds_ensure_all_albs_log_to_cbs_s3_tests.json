@@ -1,0 +1,90 @@
+[
+    {
+        "input": {
+            "resourceType": "KMS"
+        },
+        "expectations": {
+            "rules": {
+                "cds_ensure_all_albs_log_to_cbs_s3": "FAIL"
+            }
+        }
+    },
+    {
+        "input": {
+            "resourceType": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+            "supplementaryConfiguration": {
+                "LoadBalancerAttributes": [
+                    {
+                        "key": "access_logs.s3.enabled",
+                        "value": "false"
+                    },
+                    {
+                        "key": "access_logs.s3.bucket",
+                        "value": ""
+                    },
+                    {
+                        "key": "access_logs.s3.prefix",
+                        "value": ""
+                    }
+                ]
+            }
+        },
+        "expectations": {
+            "rules": {
+                "cds_ensure_all_albs_log_to_cbs_s3": "FAIL"
+            }
+        }
+    },
+    {
+        "input": {
+            "resourceType": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+            "supplementaryConfiguration": {
+                "LoadBalancerAttributes": [
+                    {
+                        "key": "access_logs.s3.enabled",
+                        "value": "true"
+                    },
+                    {
+                        "key": "access_logs.s3.bucket",
+                        "value": "cbs-satellite-"
+                    },
+                    {
+                        "key": "access_logs.s3.prefix",
+                        "value": ""
+                    }
+                ]
+            }
+        },
+        "expectations": {
+            "rules": {
+                "cds_ensure_all_albs_log_to_cbs_s3": "FAIL"
+            }
+        }
+    },
+    {
+        "input": {
+            "resourceType": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+            "supplementaryConfiguration": {
+                "LoadBalancerAttributes": [
+                    {
+                        "key": "access_logs.s3.enabled",
+                        "value": "true"
+                    },
+                    {
+                        "key": "access_logs.s3.bucket",
+                        "value": "cbs-satellite-"
+                    },
+                    {
+                        "key": "access_logs.s3.prefix",
+                        "value": "lb_logs"
+                    }
+                ]
+            }
+        },
+        "expectations": {
+            "rules": {
+                "cds_ensure_all_albs_log_to_cbs_s3": "PASS"
+            }
+        }
+    }
+]

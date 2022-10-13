@@ -1,0 +1,6 @@
+rule cds_ensure_all_albs_log_to_cbs_s3 {
+  resourceType == "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  supplementaryConfiguration.LoadBalancerAttributes[key == "access_logs.s3.enabled"].value == "true"
+  supplementaryConfiguration.LoadBalancerAttributes[key == "access_logs.s3.bucket"].value == /cbs-satellite-/
+  supplementaryConfiguration.LoadBalancerAttributes[key == "access_logs.s3.prefix"].value == "lb_logs"
+}

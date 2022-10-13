@@ -1,0 +1,12 @@
+[
+    {
+        "input": {
+            "resourceType": "KMS"
+        },
+        "expectations": {
+            "rules": {
+                "base_line": "PASS"
+            }
+        }
+    }
+]
