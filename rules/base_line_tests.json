@@ -5,7 +5,7 @@
         },
         "expectations": {
             "rules": {
-                "base_line": "PASS"
+                "base_line": "FAIL"
             }
         }
     }
