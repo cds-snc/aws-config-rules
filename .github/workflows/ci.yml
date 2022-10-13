@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Install cfn-guard
+      run: |
+        curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
+        echo "${HOME}/.guard/bin" >> $GITHUB_PATH
     - name: CI Rules
       run: |
         ./run_tests.sh
